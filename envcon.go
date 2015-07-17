@@ -28,6 +28,10 @@ type Config struct {
 	AdminEmail       string
 	AppName          string
 	AppURL           string
+	EmailAddress     string
+	EmailPassword    string
+	EmailSMTP        string
+	EmailPort        string
 }
 
 // Setup grabs the env variables and puts them in the config
@@ -45,6 +49,10 @@ func Setup(prefix string) Config {
 	c.AdminEmail = os.Getenv(fmt.Sprintf("%s_ADMIN_EMAIL", prefix))
 	c.AppName = os.Getenv(fmt.Sprintf("%s_APP_NAME", prefix))
 	c.AppURL = os.Getenv(fmt.Sprintf("%s_APP_URL", prefix))
+	c.EmailAddress = os.Getenv(fmt.Sprintf("%s_EMAIL_ADDRESS", prefix))
+	c.EmailPassword = os.Getenv(fmt.Sprintf("%s_EMAIL_PASSWORD", prefix))
+	c.EmailSMTP = os.Getenv(fmt.Sprintf("%s_EMAIL_SMTP", prefix))
+	c.EmailPort = os.Getenv(fmt.Sprintf("%s_EMAIL_PORT", prefix))
 
 	return c
 }
